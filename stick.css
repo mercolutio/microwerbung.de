@@ -30,7 +30,7 @@
   color: var(--text-secondary);
   font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   line-height: 1.7;
-  max-width: 500px;
+  max-width: 540px;
   margin: 0 auto 40px;
 }
 .stick-hero-ctas {
@@ -48,6 +48,7 @@
 }
 .stick-mockup {
   position: relative;
+  text-align: center;
 }
 .stick-device {
   display: flex;
@@ -99,13 +100,263 @@
   0%, 100% { opacity: .6; box-shadow: 0 0 8px var(--blue), 0 0 16px rgba(41,151,255,.2); }
   50% { opacity: 1; box-shadow: 0 0 12px var(--blue), 0 0 24px rgba(41,151,255,.4); }
 }
+.stick-caption {
+  margin-top: 20px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
 
 /* Active nav link on stick page */
 .nav-link-active {
   color: var(--text) !important;
 }
 
-/* Stick CTA */
+/* ═══ Steps ═══ */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  transition: all .5s var(--ease);
+}
+.step-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -.04em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+.step-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin-bottom: 12px;
+}
+.step-card p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
+/* ═══ Included / Was du bekommst ═══ */
+.included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.included-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  transition: all .5s var(--ease);
+}
+.included-item:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.included-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: rgba(41,151,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  color: var(--blue);
+}
+.included-item h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+.included-item p {
+  color: var(--text-secondary);
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+/* ═══ Calculator / Deine Zahlen ═══ */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.calc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  transition: all .5s var(--ease);
+}
+.calc-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.calc-card.featured {
+  border-color: rgba(41,151,255,.3);
+  background: linear-gradient(180deg, rgba(41,151,255,.06) 0%, var(--bg-card) 100%);
+}
+.calc-clients {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -.05em;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.calc-label {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 8px;
+}
+.calc-detail {
+  font-size: .82rem;
+  color: var(--text-tertiary);
+  margin-top: 4px;
+}
+.calc-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+.calc-result {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.calc-note {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+.calc-note strong {
+  color: var(--text);
+}
+
+/* ═══ Target / Für wen ═══ */
+.target-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.target-content h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+.target-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+.target-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+}
+.target-tag {
+  padding: 14px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 980px;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all .4s var(--ease);
+}
+.target-tag:hover {
+  border-color: var(--blue);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* ═══ Stick Pricing CTA ═══ */
+.stick-pricing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 72px;
+  position: relative;
+  overflow: hidden;
+}
+.stick-pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: var(--gradient);
+}
+.stick-pricing-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.stick-pricing-left h2 {
+  font-weight: 800;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -.035em;
+  margin-bottom: 32px;
+}
+.stick-price-box {
+  background: rgba(255,255,255,.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+.stick-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.stick-price-amount {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -.04em;
+}
+.stick-price-monthly {
+  font-size: 2rem;
+}
+.stick-price-period {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+.stick-price-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 20px 0;
+}
+
+/* Stick CTA (reused) */
 .stick-cta h2 {
   font-weight: 800;
   font-size: clamp(2.2rem, 4.5vw, 3.5rem);
@@ -113,7 +364,12 @@
   letter-spacing: -.035em;
 }
 
-/* Responsive */
+/* ═══ Responsive ═══ */
+@media (max-width: 1024px) {
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .included-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 768px) {
   .stick-hero { padding: 120px 0 60px; }
   .stick-hero h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
@@ -122,9 +378,29 @@
   .stick-connector { height: 11px; width: 16px; right: -16px; }
   .stick-label { font-size: .9rem; }
   .stick-led { width: 5px; height: 5px; left: 12px; }
+
+  .steps-grid { grid-template-columns: 1fr; gap: 12px; }
+  .step-card { padding: 32px 24px; }
+
+  .included-grid { grid-template-columns: 1fr; gap: 12px; }
+  .included-item { padding: 28px 24px; }
+
+  .calc-grid { grid-template-columns: 1fr; gap: 12px; }
+  .calc-card { padding: 32px 24px; }
+  .calc-clients { font-size: 3rem; }
+
+  .target-layout { grid-template-columns: 1fr; gap: 40px; }
+  .target-tags { justify-content: center; }
+
+  .stick-pricing-card { padding: 40px 28px; }
+  .stick-pricing-inner { grid-template-columns: 1fr; gap: 40px; }
+  .stick-price-box { padding: 32px 24px; }
+  .stick-price-amount { font-size: 2.2rem; }
+  .stick-price-monthly { font-size: 1.6rem; }
 }
 
 @media (max-width: 480px) {
   .stick-hero { padding: 110px 0 40px; }
   .stick-hero-ctas { flex-direction: column; align-items: stretch; }
+  .target-tag { padding: 10px 18px; font-size: .82rem; }
 }
