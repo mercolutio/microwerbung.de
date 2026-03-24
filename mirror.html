@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layrr Mirror — Werbung die ins Auge geht.</title>
+<meta name="description" content="Der Layrr Mirror verwandelt jeden Spiegel in eine lebendige Werbefläche. Unsichtbar wenn aus. Unübersehbar wenn an.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mirror.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+<div class="nav-inner">
+<a href="/" class="nav-logo">micro<span>werbung</span></a>
+<ul class="nav-links">
+<li><a href="/#werbung">Werbung schalten</a></li>
+<li><a href="/#standort">Standort-Partner</a></li>
+<li><a href="/stick.html">Der Stick</a></li>
+<li><a href="/mirror.html" class="nav-link-active">Der Mirror</a></li>
+</ul>
+<a href="/#kontakt" class="nav-cta">Kontakt</a>
+<button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menü">
+<span></span><span></span><span></span>
+</button>
+</div>
+<div class="mobile-menu">
+<a href="/#werbung" onclick="this.parentElement.classList.remove('open')">Werbung schalten</a>
+<a href="/#standort" onclick="this.parentElement.classList.remove('open')">Standort-Partner</a>
+<a href="/stick.html" onclick="this.parentElement.classList.remove('open')">Der Stick</a>
+<a href="/mirror.html" onclick="this.parentElement.classList.remove('open')">Der Mirror</a>
+<a href="/#kontakt" onclick="this.parentElement.classList.remove('open')">Kontakt</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="mirror-hero">
+<div class="container">
+<div class="mirror-hero-inner">
+<p class="section-eyebrow reveal">Layrr Mirror</p>
+<h1 class="reveal" style="--delay:.1s">Werbung die ins Auge geht.</h1>
+<p class="mirror-hero-italic reveal" style="--delay:.15s">Buchstäblich.</p>
+<p class="mirror-hero-sub reveal" style="--delay:.2s">Der Layrr Mirror verwandelt jeden Spiegel in eine lebendige Werbefläche. Unsichtbar wenn aus. Unübersehbar wenn an.</p>
+<div class="mirror-hero-ctas reveal" style="--delay:.3s">
+<a href="#modelle" class="btn btn-primary">Modelle ansehen</a>
+<a href="#pricing" class="btn btn-secondary">Preise &amp; Zahlen <span class="arrow">&rarr;</span></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Drei Schritte -->
+<section id="so-funktionierts" class="section-dark">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<h2>Drei Schritte.<br><span class="gradient-text">Null Komplexität.</span></h2>
+</div>
+<div class="mirror-steps-grid">
+<div class="step-card reveal" style="--delay:.1s">
+<div class="step-number">01</div>
+<h3>Mirror kaufen</h3>
+<p>Wähle deine Größe. Wir liefern, du montierst — oder wir kommen zu dir.</p>
+</div>
+<div class="step-card reveal" style="--delay:.2s">
+<div class="step-number">02</div>
+<h3>Content anpassen</h3>
+<p>Über das Layrr Dashboard lädst du Bilder, Videos und Angebote hoch. Läuft sofort auf dem Mirror.</p>
+</div>
+<div class="step-card reveal" style="--delay:.3s">
+<div class="step-number">03</div>
+<h3>Reichweite verkaufen</h3>
+<p>Du findest Werbetreibende in deiner Umgebung, lädst deren Content hoch und rechnest direkt mit ihnen ab. Wir stellen die Plattform.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Modelle -->
+<section id="modelle">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<p class="section-eyebrow">Deine Modelle</p>
+<h2>Am richtigen Ort.</h2>
+</div>
+<div class="mirror-models-grid">
+<div class="mirror-model-card reveal" style="--delay:.1s">
+<h3>Layrr Mirror S</h3>
+<p class="mirror-model-size">40 &times; 50 cm</p>
+<p class="mirror-model-desc">Friseurstuhl, Kosmetikstudio, Umkleidekabine. Der ideale Einstieg.</p>
+<div class="mirror-model-price">ab 1.490 &euro;</div>
+</div>
+<div class="mirror-model-card reveal" style="--delay:.2s">
+<h3>Layrr Mirror M</h3>
+<p class="mirror-model-size">60 &times; 80 cm</p>
+<p class="mirror-model-desc">Empfang, Wartezimmer, Boutique. Der Klassiker.</p>
+<div class="mirror-model-price">ab 2.490 &euro;</div>
+</div>
+<div class="mirror-model-card reveal" style="--delay:.3s">
+<h3>Layrr Mirror L</h3>
+<p class="mirror-model-size">100 &times; 150 cm</p>
+<p class="mirror-model-desc">Fitnessstudio, Hotel, Modegeschäft. Maximale Wirkung.</p>
+<div class="mirror-model-price">ab 4.990 &euro;</div>
+</div>
+<div class="mirror-model-card reveal" style="--delay:.4s">
+<h3>Layrr Mirror XL</h3>
+<p class="mirror-model-size">Maßanfertigung</p>
+<p class="mirror-model-desc">Ganze Spiegelwände. Einkaufszentren. Flagship Stores.</p>
+<div class="mirror-model-price">Auf Anfrage</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="section-dark">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<p class="section-eyebrow">Deine Marge</p>
+<h2>Dein Business.</h2>
+</div>
+<div class="mirror-pricing-highlight reveal">
+<p>Starter ab <strong>19,90 &euro; / Monat</strong> pro Werbetreibendem.</p>
+<p class="mirror-pricing-example">3 Kunden &times; 19,90 &euro; = bereits <strong>59,70 &euro; passiv</strong> — Abo schon gedeckt.</p>
+</div>
+</div>
+</section>
+
+<!-- Was du bekommst -->
+<section id="lieferumfang">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<p class="section-eyebrow">Was du bekommst</p>
+</div>
+<div class="mirror-included-grid">
+<div class="mirror-included-item reveal" style="--delay:.05s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+</div>
+<h3>Layrr Mirror Hardware</h3>
+<p>Größe nach Wahl</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.1s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+</div>
+<h3>Layrr Management Software</h3>
+<p>49,90 &euro; / Monat</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.15s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+</div>
+<h3>Pro angebundenem Mirror</h3>
+<p>9,90 &euro; / Monat</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.2s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+</div>
+<h3>Unbegrenzte Werbetreibende</h3>
+<p>So viele Kunden wie du willst</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.25s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</div>
+<h3>Remote Content Management</h3>
+<p>Inhalte von überall steuern</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.3s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+</div>
+<h3>Echtzeit Vorschau im Dashboard</h3>
+<p>Live sehen, was läuft</p>
+</div>
+<div class="mirror-included-item reveal" style="--delay:.35s">
+<div class="mirror-included-icon">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+</div>
+<h3>Automatische Software-Updates</h3>
+<p>Immer auf dem neusten Stand</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Deine Zahlen -->
+<section id="zahlen" class="section-dark">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<p class="section-eyebrow">Deine Zahlen</p>
+<h2>Realistisch gerechnet.</h2>
+</div>
+<div class="mirror-calc-table reveal">
+<table>
+<thead>
+<tr>
+<th>Setup</th>
+<th>Mirrors</th>
+<th>Monatl. Einnahmen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Einzelner Friseur</td>
+<td>1&times; S</td>
+<td><strong>59,80 &euro;</strong></td>
+</tr>
+<tr>
+<td>Friseursalon</td>
+<td>4&times; S</td>
+<td><strong>89,50 &euro;</strong></td>
+</tr>
+<tr>
+<td>Fitnessstudio</td>
+<td>10&times; L</td>
+<td><strong>148,90 &euro;</strong></td>
+</tr>
+<tr>
+<td>Friseurkette 3 Filialen</td>
+<td>12&times; S</td>
+<td><strong>268,50 &euro;</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="mirror-calc-note reveal" style="--delay:.1s">Abzüglich deiner Kosten — <strong>der Rest gehört dir.</strong></p>
+</div>
+</section>
+
+<!-- Eigenes Netzwerk -->
+<section id="netzwerk">
+<div class="container">
+<div class="mirror-network reveal">
+<p class="section-eyebrow">Eigenes Netzwerk?</p>
+<h2>Wir liefern. <span class="gradient-text">Du betreibst.</span></h2>
+<p class="mirror-network-desc">Hardware kaufen. Software abonnieren. Werbetreibende akquirieren. Passiv verdienen. Wir stellen die Infrastruktur — du baust dein lokales Werbenetzwerk.</p>
+<a href="/#kontakt" class="btn btn-primary" style="margin-top:40px">Jetzt starten</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="/" class="nav-logo">micro<span>werbung</span></a>
+<p>Lokale Werbung. Physisch. Lebendig.</p>
+</div>
+<div class="footer-links">
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+<a href="mailto:hallo@microwerbung.de">Kontakt</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 microwerbung.de — Alle Rechte vorbehalten.</p>
+</div>
+</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
