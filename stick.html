@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>microwerbung Stick — Plug & Play Werbung für jeden Screen</title>
+<meta name="description" content="Der microwerbung Stick — einfach an jeden Bildschirm anschließen und lokale Werbung ausspielen. Plug & Play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="stick.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+<div class="nav-inner">
+<a href="/" class="nav-logo">micro<span>werbung</span></a>
+<ul class="nav-links">
+<li><a href="/#werbung">Werbung schalten</a></li>
+<li><a href="/#standort">Standort-Partner</a></li>
+<li><a href="/stick.html" class="nav-link-active">Der Stick</a></li>
+</ul>
+<a href="/#kontakt" class="nav-cta">Kontakt</a>
+<button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menü">
+<span></span><span></span><span></span>
+</button>
+</div>
+<div class="mobile-menu">
+<a href="/#werbung" onclick="this.parentElement.classList.remove('open')">Werbung schalten</a>
+<a href="/#standort" onclick="this.parentElement.classList.remove('open')">Standort-Partner</a>
+<a href="/stick.html" onclick="this.parentElement.classList.remove('open')">Der Stick</a>
+<a href="/#kontakt" onclick="this.parentElement.classList.remove('open')">Kontakt</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="stick-hero">
+<div class="container">
+<div class="stick-hero-inner">
+<p class="section-eyebrow reveal">Neues Produkt</p>
+<h1 class="reveal" style="--delay:.1s">Der microwerbung<br><span class="gradient-text">Stick.</span></h1>
+<p class="stick-hero-sub reveal" style="--delay:.2s">Plug & Play lokale Werbung — für jeden Bildschirm. Einfach einstecken, fertig.</p>
+<div class="stick-hero-ctas reveal" style="--delay:.3s">
+<a href="#details" class="btn btn-primary">Mehr erfahren</a>
+<a href="/#kontakt" class="btn btn-secondary">Jetzt anfragen <span class="arrow">&rarr;</span></a>
+</div>
+</div>
+<!-- Stick Visual -->
+<div class="stick-visual reveal" style="--delay:.25s">
+<div class="stick-mockup">
+<div class="stick-device">
+<div class="stick-body">
+<div class="stick-connector"></div>
+<div class="stick-label">mw</div>
+<div class="stick-led"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Placeholder for content -->
+<section id="details">
+<div class="container">
+<div class="section-header reveal" style="text-align:center">
+<p class="section-eyebrow">So funktioniert's</p>
+<h2>Einstecken. Einschalten.<br><span class="gradient-text">Werbung läuft.</span></h2>
+<p class="section-desc" style="margin:0 auto">Inhalt folgt in Kürze.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="section-dark">
+<div class="container">
+<div class="stick-cta reveal" style="text-align:center">
+<h2>Interesse am Stick?<br><span class="gradient-text">Lass uns sprechen.</span></h2>
+<p class="section-desc" style="margin:20px auto 40px">Wir informieren dich, sobald der Stick verfügbar ist.</p>
+<a href="/#kontakt" class="btn btn-primary">Jetzt anfragen</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">
+<a href="/" class="nav-logo">micro<span>werbung</span></a>
+<p>Lokale Werbung. Physisch. Lebendig.</p>
+</div>
+<div class="footer-links">
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+<a href="mailto:hallo@microwerbung.de">Kontakt</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 microwerbung.de — Alle Rechte vorbehalten.</p>
+</div>
+</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+</script>
+
+</body>
+</html>
