@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>microwerbung — Lokale Werbung. Physisch. Lebendig.</title>
+<meta name="description" content="Smarte digitale Displays in lokalen Läden — deine Marke dort, wo echte Menschen einkaufen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--lime:#c8f135;
+--bg:#0a0a0a;
+--card:#111111;
+--card-alt:#161616;
+--border:#1e1e1e;
+--text:#ffffff;
+--text-sec:#555555;
+--font-head:'Syne',sans-serif;
+--font-mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font-head);line-height:1.6;overflow-x:hidden}
+
+/* Selection */
+::selection{background:var(--lime);color:var(--bg)}
+
+/* Grid BG */
+.grid-bg{
+position:fixed;inset:0;z-index:0;pointer-events:none;
+background-image:
+  linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:60px 60px;
+}
+
+/* Nav */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:100;
+background:rgba(10,10,10,.8);
+backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+border-bottom:1px solid #1a1a1a;
+}
+.nav-inner{
+max-width:1200px;margin:0 auto;padding:0 24px;
+height:64px;display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{
+font-family:var(--font-head);font-weight:800;font-size:1.25rem;
+color:var(--lime);text-decoration:none;letter-spacing:-0.02em;
+}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{
+font-family:var(--font-mono);font-size:.8rem;color:var(--text-sec);
+text-decoration:none;transition:color .3s;letter-spacing:.02em;
+}
+.nav-links a:hover{color:var(--text)}
+.live-dot{
+display:inline-block;width:6px;height:6px;border-radius:50%;
+background:var(--lime);margin-left:6px;vertical-align:middle;
+animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;transition:all .3s}
+.mobile-menu{
+display:none;position:fixed;top:64px;left:0;right:0;
+background:rgba(10,10,10,.95);backdrop-filter:blur(16px);
+border-bottom:1px solid #1a1a1a;padding:24px;
+}
+.mobile-menu.open{display:block}
+.mobile-menu a{
+display:block;font-family:var(--font-mono);font-size:.9rem;
+color:var(--text-sec);text-decoration:none;padding:12px 0;
+border-bottom:1px solid #1a1a1a;
+}
+.mobile-menu a:last-child{border:none}
+
+/* Sections */
+section{position:relative;z-index:1;padding:120px 24px}
+.container{max-width:1200px;margin:0 auto}
+
+/* Section reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Section tag */
+.section-tag{
+font-family:var(--font-mono);color:var(--lime);font-size:12px;
+letter-spacing:.3em;text-transform:uppercase;margin-bottom:24px;
+}
+
+/* Hero */
+.hero{
+padding-top:160px;padding-bottom:100px;
+min-height:100vh;display:flex;align-items:center;
+position:relative;overflow:hidden;
+}
+.hero::before{
+content:'';position:absolute;
+width:600px;height:600px;
+background:radial-gradient(circle,rgba(200,241,53,.06) 0%,transparent 70%);
+right:-100px;top:50%;transform:translateY(-50%);
+pointer-events:none;
+}
+.hero-grid{
+display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+}
+.hero-content h1{
+font-family:var(--font-head);font-weight:800;
+font-size:clamp(2.5rem,5vw,4rem);line-height:1.1;
+letter-spacing:-0.03em;margin-bottom:24px;
+}
+.hero-content h1 .lime{color:var(--lime)}
+.hero-content p{
+color:var(--text-sec);font-size:1.1rem;line-height:1.7;
+max-width:480px;margin-bottom:40px;font-weight:700;
+}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+
+/* Buttons */
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+font-family:var(--font-head);font-weight:800;font-size:.9rem;
+padding:14px 28px;border-radius:4px;text-decoration:none;
+transition:all .3s;cursor:pointer;border:none;
+}
+.btn-lime{background:var(--lime);color:var(--bg)}
+.btn-lime:hover{box-shadow:0 0 20px rgba(200,241,53,.3);transform:translateY(-1px)}
+.btn-ghost{
+background:transparent;color:var(--text);
+border:1px solid var(--border);
+}
+.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
+
+/* Mockup */
+.hero-visual{position:relative;display:flex;justify-content:center}
+.mockup-wrapper{
+position:relative;animation:float 6s ease-in-out infinite;
+}
+.mockup-wrapper img{
+max-width:100%;height:auto;max-height:560px;
+border-radius:8px;
+filter:drop-shadow(0 0 40px rgba(200,241,53,.08));
+}
+.mockup-placeholder{
+width:300px;height:500px;
+background:var(--card);
+border:1px solid var(--border);
+border-left:3px solid var(--lime);
+border-radius:12px;
+display:flex;align-items:center;justify-content:center;
+flex-direction:column;gap:16px;
+box-shadow:0 0 40px rgba(200,241,53,.06);
+position:relative;overflow:hidden;
+}
+.mockup-placeholder::before{
+content:'';position:absolute;inset:8px;
+border:1px solid #222;border-radius:8px;
+}
+.mockup-placeholder .screen{
+width:calc(100% - 24px);height:calc(100% - 80px);
+background:#161616;border-radius:6px;margin-top:12px;
+display:flex;align-items:center;justify-content:center;
+flex-direction:column;gap:8px;
+}
+.mockup-placeholder .screen-line{
+width:60%;height:3px;background:#222;border-radius:2px;
+}
+.mockup-placeholder .screen-line:nth-child(2){width:45%}
+.mockup-placeholder .screen-line:nth-child(3){width:50%}
+.mockup-placeholder .brand-bar{
+width:100%;height:48px;background:#0a0a0a;
+display:flex;align-items:center;justify-content:center;gap:8px;
+border-radius:0 0 10px 10px;
+font-family:var(--font-mono);font-size:11px;color:var(--lime);
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-14px)}
+}
+
+/* Steps */
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.step-card{
+background:var(--card);border:1px solid var(--border);
+border-radius:4px;padding:40px 32px;position:relative;
+transition:all .3s;
+}
+.step-card:hover{
+border-color:var(--lime);
+box-shadow:0 0 20px rgba(200,241,53,.08);
+}
+.step-num{
+font-family:var(--font-mono);font-size:3rem;color:var(--lime);
+opacity:.3;font-weight:400;margin-bottom:16px;display:block;
+}
+.step-card h3{
+font-family:var(--font-head);font-weight:800;font-size:1.25rem;
+margin-bottom:12px;letter-spacing:-0.02em;
+}
+.step-card p{color:var(--text-sec);font-size:.95rem;font-weight:700;line-height:1.6}
+
+/* Pricing */
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;max-width:800px}
+.pricing-card{
+background:var(--card);border:1px solid var(--border);
+border-radius:4px;padding:40px 32px;position:relative;
+transition:all .3s;
+}
+.pricing-card:hover{
+border-color:var(--lime);
+box-shadow:0 0 20px rgba(200,241,53,.08);
+}
+.pricing-card.featured{border-color:var(--lime)}
+.pricing-badge{
+position:absolute;top:-12px;right:24px;
+background:var(--lime);color:var(--bg);
+font-family:var(--font-mono);font-size:11px;
+padding:4px 12px;border-radius:2px;font-weight:400;
+letter-spacing:.05em;
+}
+.pricing-card h3{
+font-family:var(--font-head);font-weight:800;font-size:1.3rem;
+margin-bottom:8px;letter-spacing:-0.02em;
+}
+.pricing-price{
+font-family:var(--font-head);font-weight:800;font-size:2rem;
+color:var(--lime);margin-bottom:4px;
+}
+.pricing-price span{font-size:.9rem;color:var(--text-sec);font-weight:700}
+.pricing-desc{color:var(--text-sec);font-size:.9rem;font-weight:700;line-height:1.6;margin-top:12px}
+
+/* Partner */
+.partner-features{margin:40px 0;display:flex;flex-direction:column;gap:16px}
+.partner-feature{display:flex;align-items:center;gap:12px;font-size:1rem;font-weight:700}
+.check{
+width:20px;height:20px;border-radius:2px;
+background:rgba(200,241,53,.1);color:var(--lime);
+display:flex;align-items:center;justify-content:center;
+font-size:14px;flex-shrink:0;
+}
+
+/* Hardware */
+.hw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:48px;max-width:800px}
+.hw-card{
+background:var(--card);border:1px solid var(--border);
+border-radius:4px;padding:40px 32px;
+transition:all .3s;
+}
+.hw-card:hover{
+border-color:var(--lime);
+box-shadow:0 0 20px rgba(200,241,53,.08);
+}
+.hw-card h3{
+font-family:var(--font-head);font-weight:800;font-size:1.2rem;
+margin-bottom:8px;letter-spacing:-0.02em;
+}
+.hw-price{
+font-family:var(--font-head);font-weight:800;font-size:1.4rem;
+color:var(--lime);margin-bottom:4px;
+}
+.hw-price span{font-size:.8rem;color:var(--text-sec);font-weight:700}
+.hw-card p{color:var(--text-sec);font-size:.9rem;font-weight:700;line-height:1.6;margin-top:12px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-text{color:var(--text-sec);font-size:1.05rem;font-weight:700;line-height:1.8}
+.stats{display:flex;flex-direction:column;gap:32px}
+.stat{text-align:center}
+.stat-num{
+font-family:var(--font-head);font-weight:800;
+font-size:2.5rem;color:var(--lime);letter-spacing:-0.03em;
+}
+.stat-label{
+font-family:var(--font-mono);font-size:.8rem;
+color:var(--text-sec);margin-top:4px;letter-spacing:.05em;
+}
+
+/* Contact */
+.contact-section{text-align:center}
+.contact-section h2{
+font-family:var(--font-head);font-weight:800;
+font-size:clamp(2rem,4vw,3rem);letter-spacing:-0.03em;
+margin-bottom:16px;
+}
+.contact-section>p{
+color:var(--text-sec);font-size:1rem;font-weight:700;
+max-width:560px;margin:0 auto 48px;
+}
+.contact-form{
+max-width:520px;margin:0 auto;
+display:flex;flex-direction:column;gap:16px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+background:var(--card);border:1px solid var(--border);
+border-radius:4px;padding:14px 16px;
+color:var(--text);font-family:var(--font-head);font-size:.9rem;font-weight:700;
+outline:none;transition:border-color .3s;
+width:100%;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:var(--text-sec)}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{border-color:var(--lime)}
+.contact-form select{appearance:none;cursor:pointer}
+.contact-form select option{background:var(--bg)}
+.contact-form textarea{resize:vertical;min-height:120px}
+.contact-form .btn{justify-content:center;width:100%;font-size:1rem;padding:16px}
+.contact-email{
+font-family:var(--font-mono);font-size:.85rem;
+color:var(--text-sec);margin-top:24px;
+}
+.contact-email a{color:var(--lime);text-decoration:none}
+.contact-email a:hover{text-decoration:underline}
+
+/* Section headlines */
+.section-headline{
+font-family:var(--font-head);font-weight:800;
+font-size:clamp(1.8rem,3.5vw,2.8rem);line-height:1.15;
+letter-spacing:-0.03em;margin-bottom:16px;
+}
+.section-sub{
+color:var(--text-sec);font-size:1rem;font-weight:700;
+max-width:560px;line-height:1.7;
+}
+
+/* Footer */
+footer{
+position:relative;z-index:1;
+border-top:1px solid #1a1a1a;
+padding:48px 24px;
+}
+.footer-inner{
+max-width:1200px;margin:0 auto;
+display:flex;align-items:center;justify-content:space-between;
+flex-wrap:wrap;gap:24px;
+}
+.footer-brand{display:flex;flex-direction:column;gap:4px}
+.footer-brand .logo{
+font-family:var(--font-head);font-weight:800;
+font-size:1.1rem;color:var(--lime);
+}
+.footer-brand .tagline{
+font-family:var(--font-mono);font-size:.75rem;color:var(--text-sec);
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+font-family:var(--font-mono);font-size:.8rem;
+color:var(--text-sec);text-decoration:none;transition:color .3s;
+}
+.footer-links a:hover{color:var(--text)}
+.footer-bottom{
+width:100%;text-align:center;margin-top:24px;
+padding-top:24px;border-top:1px solid #1a1a1a;
+}
+.footer-bottom p{font-family:var(--font-mono);font-size:.7rem;color:#333}
+
+/* Responsive */
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:block}
+.hero-grid{grid-template-columns:1fr;text-align:center}
+.hero-content p{margin-left:auto;margin-right:auto}
+.hero-ctas{justify-content:center}
+.hero-visual{margin-top:48px}
+.steps-grid{grid-template-columns:1fr}
+.pricing-grid{grid-template-columns:1fr}
+.hw-grid{grid-template-columns:1fr}
+.about-grid{grid-template-columns:1fr;gap:40px;text-align:center}
+.footer-inner{flex-direction:column;text-align:center}
+.footer-links{flex-wrap:wrap;justify-content:center}
+section{padding:80px 20px}
+.hero{padding-top:120px;padding-bottom:60px}
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<!-- Navigation -->
+<nav>
+<div class="nav-inner">
+<a href="#" class="nav-logo">microwerbung<span class="live-dot"></span></a>
+<ul class="nav-links">
+<li><a href="#werbung">Werbefläche</a></li>
+<li><a href="#partner">Partner</a></li>
+<li><a href="#hardware">Hardware</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ul>
+<button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.toggle('open')" aria-label="Menü">
+<span></span><span></span><span></span>
+</button>
+</div>
+<div class="mobile-menu">
+<a href="#werbung" onclick="this.parentElement.classList.remove('open')">Werbefläche</a>
+<a href="#partner" onclick="this.parentElement.classList.remove('open')">Partner</a>
+<a href="#hardware" onclick="this.parentElement.classList.remove('open')">Hardware</a>
+<a href="#kontakt" onclick="this.parentElement.classList.remove('open')">Kontakt</a>
+</div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-content">
+<h1>Lokale Werbung.<br>Physisch. <span class="lime">Lebendig.</span></h1>
+<p>Smarte digitale Displays in lokalen Läden — deine Marke dort, wo echte Menschen einkaufen.</p>
+<div class="hero-ctas">
+<a href="#werbung" class="btn btn-lime">Werbefläche buchen</a>
+<a href="#partner" class="btn btn-ghost">Partner werden →</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="mockup-wrapper">
+<img src="mockup.jpg" alt="microwerbung Display" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="mockup-placeholder" style="display:none">
+<div class="screen">
+<div class="screen-line"></div>
+<div class="screen-line"></div>
+<div class="screen-line"></div>
+</div>
+<div class="brand-bar">
+<span>layrr</span><span class="live-dot"></span><span style="color:#555;font-size:10px">live</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Wie es funktioniert -->
+<section id="schritte">
+<div class="container">
+<div class="reveal">
+<div class="section-tag">// WIE ES FUNKTIONIERT</div>
+<h2 class="section-headline">Drei Schritte. Keine Komplexität.</h2>
+</div>
+<div class="steps-grid">
+<div class="step-card reveal">
+<span class="step-num">01</span>
+<h3>Display</h3>
+<p>Wir installieren ein microwerbung-Display beim Partner-Laden — fertig aufgebaut, sofort einsatzbereit.</p>
+</div>
+<div class="step-card reveal">
+<span class="step-num">02</span>
+<h3>Content</h3>
+<p>Deine Website oder Landing Page läuft darauf — scrollbar, lebendig, immer aktuell.</p>
+</div>
+<div class="step-card reveal">
+<span class="step-num">03</span>
+<h3>Reichweite</h3>
+<p>Echte Menschen sehen deine Marke täglich vor Ort — dort, wo sie einkaufen und leben.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Werbefläche -->
+<section id="werbung">
+<div class="container">
+<div class="reveal">
+<div class="section-tag">// WERBEFLÄCHE</div>
+<h2 class="section-headline">Deine Marke. Im richtigen Moment.<br>Am richtigen Ort.</h2>
+<p class="section-sub">Lokale Unternehmen, Dienstleister, Handwerker — bringe deine Website direkt in Läden, wo deine Zielgruppe einkauft.</p>
+</div>
+<div class="pricing-grid reveal">
+<div class="pricing-card">
+<h3>Basic</h3>
+<div class="pricing-price">29 € <span>/Monat</span></div>
+<p class="pricing-desc">Logo + Screenshot rotierend auf Displays in deiner Umgebung. Ideal zum Einstieg.</p>
+</div>
+<div class="pricing-card featured">
+<div class="pricing-badge">Empfohlen</div>
+<h3>Premium</h3>
+<div class="pricing-price">49 € <span>/Monat</span></div>
+<p class="pricing-desc">Live-Website-Preview + QR-Code + Priorisierung. Maximale Sichtbarkeit für deine Marke.</p>
+</div>
+</div>
+<div style="margin-top:40px" class="reveal">
+<a href="#kontakt" class="btn btn-lime">Jetzt Werbefläche sichern</a>
+</div>
+</div>
+</section>
+
+<!-- Partner -->
+<section id="partner">
+<div class="container">
+<div class="reveal">
+<div class="section-tag">// PARTNER</div>
+<h2 class="section-headline">Hast du einen Laden?<br>Verdiene passiv mit.</h2>
+<p class="section-sub">Du stellst den Platz — wir installieren alles. Kein Aufwand, keine Kosten, 30% der monatlichen Einnahmen.</p>
+</div>
+<div class="partner-features reveal">
+<div class="partner-feature">
+<div class="check">✓</div>
+<span>Kostenlose Installation & Hardware</span>
+</div>
+<div class="partner-feature">
+<div class="check">✓</div>
+<span>30% der Werbeeinnahmen monatlich</span>
+</div>
+<div class="partner-feature">
+<div class="check">✓</div>
+<span>Kein technischer Aufwand für dich</span>
+</div>
+</div>
+<div class="reveal">
+<a href="#kontakt" class="btn btn-lime">Partner werden</a>
+</div>
+</div>
+</section>
+
+<!-- Hardware & Software -->
+<section id="hardware">
+<div class="container">
+<div class="reveal">
+<div class="section-tag">// HARDWARE & SOFTWARE</div>
+<h2 class="section-headline">Du willst selbst ein Netzwerk aufbauen?</h2>
+<p class="section-sub">Wir verkaufen und verleasen die komplette Hardware sowie die lokale Software. Display-System mit Raspberry Pi, Alu-Rahmen und CI-Beklebung.</p>
+</div>
+<div class="hw-grid reveal">
+<div class="hw-card">
+<h3>Hardware-Paket</h3>
+<div class="hw-price">ab 299 € <span>einmalig</span></div>
+<div class="hw-price" style="font-size:1rem;margin-top:4px">oder ab 29 € <span>/Monat Leasing</span></div>
+<p>Display fertig aufgebaut, CI-beklebt, Plug & Play. Einfach anschließen und loslegen.</p>
+</div>
+<div class="hw-card">
+<h3>Software-Lizenz</h3>
+<div class="hw-price">49 € <span>einmalig</span></div>
+<p>Lokale Slideshow-Software, offline-fähig, kein Abo. Läuft auf jedem Raspberry Pi.</p>
+</div>
+</div>
+<div style="margin-top:40px" class="reveal">
+<a href="#kontakt" class="btn btn-lime">Angebot anfragen</a>
+</div>
+</div>
+</section>
+
+<!-- Über -->
+<section id="ueber">
+<div class="container">
+<div class="about-grid reveal">
+<div>
+<div class="section-tag">// ÜBER UNS</div>
+<p class="about-text">Wir glauben, dass lokale Unternehmen die beste Werbung verdienen. microwerbung bringt digitale Präsenz zurück in den physischen Raum — greifbar, lokal, lebendig.</p>
+</div>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">12+</div>
+<div class="stat-label">Displays aktiv</div>
+</div>
+<div class="stat">
+<div class="stat-num">3</div>
+<div class="stat-label">Städte</div>
+</div>
+<div class="stat">
+<div class="stat-num">100%</div>
+<div class="stat-label">Offline & stabil</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Kontakt -->
+<section id="kontakt" class="contact-section">
+<div class="container">
+<div class="reveal">
+<h2 class="section-headline">Bereit loszulegen?</h2>
+<p>Ob Werbetreibender, Partner oder Hardware-Käufer — wir melden uns innerhalb von 24h.</p>
+</div>
+<form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="E-Mail" required>
+<select name="interesse" required>
+<option value="" disabled selected>Interesse wählen</option>
+<option value="werbung">Werbefläche buchen</option>
+<option value="partner">Partner werden</option>
+<option value="hardware">Hardware & Software</option>
+</select>
+<textarea name="nachricht" placeholder="Nachricht (optional)"></textarea>
+<button type="submit" class="btn btn-lime">Nachricht senden</button>
+</form>
+<div class="contact-email reveal">
+<p>Oder direkt: <a href="mailto:hallo@microwerbung.de">hallo@microwerbung.de</a></p>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="footer-inner">
+<div class="footer-brand">
+<div class="logo">microwerbung</div>
+<div class="tagline">Lokale Werbung. Physisch. Lebendig.</div>
+</div>
+<div class="footer-links">
+<a href="#">Impressum</a>
+<a href="#">Datenschutz</a>
+<a href="#kontakt">Kontakt</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Made with layrr technology</p>
+<p style="margin-top:4px">© 2025 microwerbung.de</p>
+</div>
+</footer>
+
+<script>
+// IntersectionObserver for reveal animations
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+a.addEventListener('click', e => {
+const target = document.querySelector(a.getAttribute('href'));
+if (target) {
+e.preventDefault();
+target.scrollIntoView({ behavior: 'smooth' });
+}
+});
+});
+</script>
+
+</body>
+</html>
