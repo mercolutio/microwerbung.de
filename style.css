@@ -713,6 +713,17 @@ section { position: relative; padding: 140px 0; }
   justify-content: center;
   align-items: center;
 }
+.stick-teaser-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  filter: drop-shadow(0 8px 32px rgba(41,151,255,.12));
+  transition: transform .5s var(--ease);
+}
+.stick-teaser-card:hover .stick-teaser-img {
+  transform: translateY(-4px);
+}
 .stick-teaser-body {
   width: 200px;
   height: 62px;

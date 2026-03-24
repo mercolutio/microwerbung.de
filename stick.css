@@ -100,6 +100,13 @@
   0%, 100% { opacity: .6; box-shadow: 0 0 8px var(--blue), 0 0 16px rgba(41,151,255,.2); }
   50% { opacity: 1; box-shadow: 0 0 12px var(--blue), 0 0 24px rgba(41,151,255,.4); }
 }
+.stick-product-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 16px;
+  filter: drop-shadow(0 8px 40px rgba(41,151,255,.15));
+}
 .stick-caption {
   margin-top: 20px;
   font-size: .8rem;
