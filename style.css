@@ -341,9 +341,11 @@ section { position: relative; padding: 140px 0; }
 /* ═══ Pricing ═══ */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   align-items: start;
+  max-width: 700px;
+  margin: 0 auto;
 }
 .pricing-card {
   background: var(--bg-card);
