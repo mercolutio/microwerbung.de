@@ -7,15 +7,10 @@
 <meta name="description" content="Smarte digitale Displays in lokalen Läden — deine Marke dort, wo echte Menschen einkaufen.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Ambient Orbs -->
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
 
 <!-- Navigation -->
 <nav>
@@ -23,7 +18,7 @@
 <a href="#" class="nav-logo">micro<span>werbung</span></a>
 <ul class="nav-links">
 <li><a href="#so-gehts">So geht's</a></li>
-<li><a href="#werbung">Werbefläche</a></li>
+<li><a href="#werbung">Preise</a></li>
 <li><a href="#partner">Partner</a></li>
 <li><a href="#hardware">Hardware</a></li>
 </ul>
@@ -34,7 +29,7 @@
 </div>
 <div class="mobile-menu">
 <a href="#so-gehts" onclick="this.parentElement.classList.remove('open')">So geht's</a>
-<a href="#werbung" onclick="this.parentElement.classList.remove('open')">Werbefläche</a>
+<a href="#werbung" onclick="this.parentElement.classList.remove('open')">Preise</a>
 <a href="#partner" onclick="this.parentElement.classList.remove('open')">Partner</a>
 <a href="#hardware" onclick="this.parentElement.classList.remove('open')">Hardware</a>
 <a href="#kontakt" onclick="this.parentElement.classList.remove('open')">Kontakt</a>
@@ -44,56 +39,43 @@
 <!-- Hero -->
 <section class="hero" id="hero">
 <div class="container">
-<div class="hero-badge reveal">Lokale Werbung neu gedacht</div>
-<h1 class="reveal">Deine Marke.<br><span class="gradient-text">Dort, wo Menschen leben.</span></h1>
-<p class="hero-sub reveal">Smarte digitale Displays in lokalen Läden — greifbar, lebendig, direkt vor Ort. Keine Klicks, keine Algorithmen. Echte Präsenz.</p>
-<div class="hero-ctas reveal">
-<a href="#werbung" class="btn btn-glow">Werbefläche buchen</a>
-<a href="#partner" class="btn btn-glass">Partner werden <span class="arrow">&rarr;</span></a>
-</div>
-<div class="hero-stats reveal">
-<div class="hero-stat">
-<strong>12+</strong>
-<span>Displays aktiv</span>
-</div>
-<div class="hero-stat-divider"></div>
-<div class="hero-stat">
-<strong>3</strong>
-<span>Städte</span>
-</div>
-<div class="hero-stat-divider"></div>
-<div class="hero-stat">
-<strong>100%</strong>
-<span>Offline & stabil</span>
+<h1 class="reveal">
+<span class="hero-line">Deine Marke.</span>
+<span class="hero-line gradient-text">Dort, wo Menschen leben.</span>
+</h1>
+<p class="hero-sub reveal" style="--delay:.15s">Smarte digitale Displays in lokalen Läden — greifbar, lebendig, direkt vor Ort.<br>Keine Klicks, keine Algorithmen. Echte Präsenz.</p>
+<div class="hero-ctas reveal" style="--delay:.3s">
+<a href="#werbung" class="btn btn-primary">Werbefläche buchen</a>
+<a href="#partner" class="btn btn-secondary">Partner werden <span class="arrow">&rarr;</span></a>
 </div>
 </div>
-</div>
-<div class="hero-gradient-line"></div>
 </section>
 
+<!-- Scroll indicator -->
+<div class="scroll-indicator reveal" style="--delay:.5s">
+<div class="scroll-line"></div>
+</div>
+
 <!-- So geht's -->
-<section id="so-gehts" class="dark-section">
+<section id="so-gehts">
 <div class="container">
 <div class="section-header reveal">
-<div class="section-tag">So geht's</div>
-<h2 class="section-headline">Drei Schritte.<br><span class="gradient-text">Null Komplexität.</span></h2>
+<p class="section-eyebrow">So geht's</p>
+<h2>Drei Schritte.<br><span class="gradient-text">Null Komplexität.</span></h2>
 </div>
 <div class="steps-grid">
-<div class="glass-card reveal" style="--delay:.1s">
-<div class="card-glow"></div>
-<div class="step-num">01</div>
+<div class="step-card reveal" style="--delay:.1s">
+<div class="step-number">01</div>
 <h3>Display aufstellen</h3>
 <p>Wir installieren ein microwerbung-Display beim Partner-Laden — fertig aufgebaut, sofort einsatzbereit.</p>
 </div>
-<div class="glass-card reveal" style="--delay:.2s">
-<div class="card-glow"></div>
-<div class="step-num">02</div>
+<div class="step-card reveal" style="--delay:.2s">
+<div class="step-number">02</div>
 <h3>Content einspielen</h3>
 <p>Deine Website oder Landing Page läuft darauf — scrollbar, lebendig, immer aktuell.</p>
 </div>
-<div class="glass-card reveal" style="--delay:.3s">
-<div class="card-glow"></div>
-<div class="step-num">03</div>
+<div class="step-card reveal" style="--delay:.3s">
+<div class="step-number">03</div>
 <h3>Reichweite gewinnen</h3>
 <p>Echte Menschen sehen deine Marke täglich vor Ort — dort, wo sie einkaufen und leben.</p>
 </div>
@@ -101,87 +83,99 @@
 </div>
 </section>
 
-<!-- Werbefläche -->
-<section id="werbung">
+<!-- Werbefläche / Pricing -->
+<section id="werbung" class="section-dark">
 <div class="container">
 <div class="section-header reveal">
-<div class="section-tag">Werbefläche</div>
-<h2 class="section-headline">Deine Marke. Im richtigen Moment.<br><span class="gradient-text">Am richtigen Ort.</span></h2>
-<p class="section-sub">Lokale Unternehmen, Dienstleister, Handwerker — bringe deine Website direkt in Läden, wo deine Zielgruppe einkauft.</p>
+<p class="section-eyebrow">Werbefläche</p>
+<h2>Deine Marke. Im richtigen Moment.<br><span class="gradient-text">Am richtigen Ort.</span></h2>
+<p class="section-desc">Lokale Unternehmen, Dienstleister, Handwerker — bringe deine Website direkt dorthin, wo deine Zielgruppe einkauft.</p>
 </div>
 <div class="pricing-grid">
-<div class="glass-card pricing-card reveal" style="--delay:.1s">
-<div class="card-glow"></div>
+<div class="pricing-card reveal" style="--delay:.1s">
+<div class="pricing-header">
 <h3>Starter</h3>
-<div class="pricing-price">19,90 €<span>/Monat</span></div>
-<div class="pricing-divider"></div>
-<p>Deine Werbung auf einem Screen in einem Laden deiner Wahl. Der perfekte Einstieg in lokale Sichtbarkeit.</p>
+<p class="pricing-desc">1 Screen, 1 Laden</p>
 </div>
-<div class="glass-card pricing-card featured reveal" style="--delay:.2s">
-<div class="card-glow"></div>
+<div class="pricing-amount">
+<span class="price">19,90</span>
+<span class="currency">€</span>
+<span class="period">/Monat</span>
+</div>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li>Deine Werbung auf einem Screen</li>
+<li>Laden deiner Wahl</li>
+<li>Perfekter Einstieg</li>
+</ul>
+<a href="#kontakt" class="btn btn-outline">Loslegen</a>
+</div>
+<div class="pricing-card featured reveal" style="--delay:.2s">
 <div class="pricing-badge">Empfohlen</div>
+<div class="pricing-header">
 <h3>Reichweite</h3>
-<div class="pricing-price">14,90 €<span>/Monat</span></div>
-<div class="pricing-hint">pro Laden — ab 3 Standorten</div>
-<div class="pricing-divider"></div>
-<p>Deine Marke gleichzeitig in mehreren Läden. Mehr Standorte, besserer Preis — maximale lokale Präsenz.</p>
+<p class="pricing-desc">Ab 3 Standorten</p>
 </div>
-<div class="glass-card pricing-card reveal" style="--delay:.3s">
-<div class="card-glow"></div>
+<div class="pricing-amount">
+<span class="price">14,90</span>
+<span class="currency">€</span>
+<span class="period">/Monat pro Laden</span>
+</div>
+<div class="pricing-divider"></div>
+<ul class="pricing-features">
+<li>Mehrere Läden gleichzeitig</li>
+<li>Besserer Preis pro Standort</li>
+<li>Maximale lokale Präsenz</li>
+</ul>
+<a href="#kontakt" class="btn btn-primary">Jetzt starten</a>
+</div>
+<div class="pricing-card reveal" style="--delay:.3s">
+<div class="pricing-header">
 <h3>Eigenes System</h3>
-<div class="pricing-price">2.000 €<span>Hardware</span></div>
-<div class="pricing-hint">+ 24,90 €/Monat Software-Lizenz</div>
+<p class="pricing-desc">Volle Kontrolle</p>
+</div>
+<div class="pricing-amount">
+<span class="price">2.000</span>
+<span class="currency">€</span>
+<span class="period">Hardware</span>
+</div>
+<p class="pricing-addon">+ 24,90 €/Monat Software-Lizenz</p>
 <div class="pricing-divider"></div>
-<p>Dein eigenes Display-System: Hardware, Installation & dauerhafte Software-Lizenz. Volle Kontrolle, eigenes Netzwerk.</p>
+<ul class="pricing-features">
+<li>Eigenes Display-System</li>
+<li>Hardware & Installation inkl.</li>
+<li>Eigenes Netzwerk aufbauen</li>
+</ul>
+<a href="#kontakt" class="btn btn-outline">Angebot anfragen</a>
 </div>
-</div>
-<div style="margin-top:48px;text-align:center" class="reveal">
-<a href="#kontakt" class="btn btn-glow">Jetzt Werbefläche sichern</a>
 </div>
 </div>
 </section>
 
 <!-- Partner -->
-<section id="partner" class="dark-section">
+<section id="partner">
 <div class="container">
-<div class="partner-grid">
-<div class="reveal">
-<div class="section-tag">Partner werden</div>
-<h2 class="section-headline">Du hast einen Laden?<br><span class="gradient-text">Verdiene passiv Geld.</span></h2>
-<p class="section-sub" style="margin-bottom:24px">Du kennst andere Selbstständige in deiner Stadt — Friseure, Bäcker, Cafés, Kioske? Werde microwerbung-Partner und baue dir ein passives Einkommen auf.</p>
-<p class="section-sub" style="margin-bottom:40px"><strong style="color:var(--text)">Das Beste:</strong> Du behältst 100 % der Werbeeinnahmen aus deinem Laden. Kein Kleingedrucktes, keine Abgaben — jeder Cent gehört dir.</p>
-<div class="partner-features">
-<div class="partner-feature">
-<div class="check-icon"></div>
-<span>100 % der Einnahmen bleiben bei dir</span>
+<div class="partner-layout">
+<div class="partner-content reveal">
+<p class="section-eyebrow">Partner werden</p>
+<h2>Du hast einen Laden?<br><span class="gradient-text">Verdiene passiv Geld.</span></h2>
+<p class="partner-intro">Du kennst andere Selbstständige in deiner Stadt — Friseure, Bäcker, Cafés, Kioske? Werde microwerbung-Partner und baue dir ein passives Einkommen auf.</p>
+<p class="partner-highlight">Du behältst <strong>100 %</strong> der Werbeeinnahmen aus deinem Laden. Kein Kleingedrucktes, keine Abgaben — jeder Cent gehört dir.</p>
+<ul class="check-list">
+<li>100 % der Einnahmen bleiben bei dir</li>
+<li>Kostenlose Installation & Hardware</li>
+<li>Kein technischer Aufwand — wir kümmern uns</li>
+<li>Empfiehl uns weiter & verdiene mit jedem neuen Standort</li>
+</ul>
+<a href="#kontakt" class="btn btn-primary" style="margin-top:40px">Partner werden</a>
 </div>
-<div class="partner-feature">
-<div class="check-icon"></div>
-<span>Kostenlose Installation & Hardware</span>
-</div>
-<div class="partner-feature">
-<div class="check-icon"></div>
-<span>Kein technischer Aufwand — wir kümmern uns</span>
-</div>
-<div class="partner-feature">
-<div class="check-icon"></div>
-<span>Empfiehl uns weiter & verdiene mit jedem neuen Standort</span>
-</div>
-</div>
-<div style="margin-top:40px">
-<a href="#kontakt" class="btn btn-glow">Partner werden</a>
-</div>
-</div>
-<div class="partner-visual reveal">
-<div class="revenue-card glass-card">
-<div class="card-glow"></div>
-<div class="revenue-label">Deine Einnahmen</div>
-<div class="revenue-amount">100%</div>
-<div class="revenue-sub">gehören dir</div>
-<div class="revenue-bar">
-<div class="revenue-bar-fill"></div>
-</div>
-<div class="revenue-detail">Passives Einkommen. Null Aufwand. Null Abgaben.</div>
+<div class="partner-visual reveal" style="--delay:.2s">
+<div class="revenue-card">
+<p class="revenue-eyebrow">Deine Einnahmen</p>
+<div class="revenue-number">100<span>%</span></div>
+<p class="revenue-sub">gehören dir</p>
+<div class="revenue-bar"><div class="revenue-fill"></div></div>
+<p class="revenue-note">Passives Einkommen. Null Aufwand. Null Abgaben.</p>
 </div>
 </div>
 </div>
@@ -189,56 +183,46 @@
 </section>
 
 <!-- Hardware -->
-<section id="hardware">
+<section id="hardware" class="section-dark">
 <div class="container">
 <div class="section-header reveal">
-<div class="section-tag">Hardware & Software</div>
-<h2 class="section-headline">Eigenes Netzwerk?<br><span class="gradient-text">Wir liefern alles.</span></h2>
-<p class="section-sub">Display-System mit Raspberry Pi, Alu-Rahmen und CI-Beklebung. Plug & Play.</p>
+<p class="section-eyebrow">Hardware & Software</p>
+<h2>Eigenes Netzwerk?<br><span class="gradient-text">Wir liefern alles.</span></h2>
+<p class="section-desc">Display-System mit Raspberry Pi, Alu-Rahmen und CI-Beklebung. Plug & Play.</p>
 </div>
 <div class="hw-grid">
-<div class="glass-card hw-card reveal" style="--delay:.1s">
-<div class="card-glow"></div>
+<div class="hw-card reveal" style="--delay:.1s">
 <div class="hw-icon">
-<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#818cf8"/><stop offset="100%" style="stop-color:#c084fc"/></linearGradient></defs>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
 </svg>
 </div>
 <h3>Hardware-Paket</h3>
 <div class="hw-price">2.000 €<span>einmalig</span></div>
-<div class="pricing-divider"></div>
 <p>Display fertig aufgebaut, CI-beklebt, Plug & Play. Komplett installiert und einsatzbereit.</p>
 </div>
-<div class="glass-card hw-card reveal" style="--delay:.2s">
-<div class="card-glow"></div>
+<div class="hw-card reveal" style="--delay:.2s">
 <div class="hw-icon">
-<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#grad2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-<defs><linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#818cf8"/><stop offset="100%" style="stop-color:#c084fc"/></linearGradient></defs>
+<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
 <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
 </svg>
 </div>
 <h3>Software-Lizenz</h3>
 <div class="hw-price">24,90 €<span>/Monat</span></div>
-<div class="pricing-divider"></div>
 <p>Lokale Slideshow-Software, offline-fähig, mit Updates & Support. Läuft auf jedem Raspberry Pi.</p>
 </div>
-</div>
-<div style="margin-top:48px;text-align:center" class="reveal">
-<a href="#kontakt" class="btn btn-glow">Angebot anfragen</a>
 </div>
 </div>
 </section>
 
 <!-- Kontakt -->
-<section id="kontakt" class="dark-section contact-section">
+<section id="kontakt">
 <div class="container">
-<div class="section-header reveal">
-<h2 class="section-headline" style="text-align:center">Bereit loszulegen?<br><span class="gradient-text">Lass uns sprechen.</span></h2>
-<p class="section-sub" style="text-align:center;margin:0 auto 48px">Ob Werbetreibender, Partner oder Hardware-Käufer — wir melden uns innerhalb von 24 h.</p>
+<div class="section-header reveal" style="text-align:center">
+<h2>Bereit loszulegen?<br><span class="gradient-text">Lass uns sprechen.</span></h2>
+<p class="section-desc" style="margin:0 auto">Ob Werbetreibender, Partner oder Hardware-Käufer — wir melden uns innerhalb von 24 h.</p>
 </div>
-<form class="contact-form glass-card reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-<div class="card-glow"></div>
+<form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 <div class="form-row">
 <div class="form-group">
 <label for="name">Name</label>
@@ -263,11 +247,9 @@
 <label for="nachricht">Nachricht</label>
 <textarea id="nachricht" name="nachricht" placeholder="Erzähl uns mehr über dein Vorhaben..."></textarea>
 </div>
-<button type="submit" class="btn btn-glow" style="width:100%;justify-content:center">Nachricht senden</button>
+<button type="submit" class="btn btn-primary btn-full">Nachricht senden</button>
 </form>
-<div class="contact-alt reveal">
-<p>Oder direkt: <a href="mailto:hallo@microwerbung.de">hallo@microwerbung.de</a></p>
-</div>
+<p class="contact-alt reveal">Oder direkt: <a href="mailto:hallo@microwerbung.de">hallo@microwerbung.de</a></p>
 </div>
 </section>
 
@@ -276,7 +258,7 @@
 <div class="container">
 <div class="footer-inner">
 <div class="footer-brand">
-<div class="nav-logo" style="font-size:1.2rem">micro<span>werbung</span></div>
+<a href="#" class="nav-logo">micro<span>werbung</span></a>
 <p>Lokale Werbung. Physisch. Lebendig.</p>
 </div>
 <div class="footer-links">
@@ -292,41 +274,42 @@
 </footer>
 
 <script>
+// Scroll-triggered reveal animations
 const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {
-a.addEventListener('click', e => {
-const target = document.querySelector(a.getAttribute('href'));
-if (target) {
-e.preventDefault();
-target.scrollIntoView({ behavior: 'smooth' });
-document.querySelector('.mobile-menu')?.classList.remove('open');
-}
-});
-});
-
-// Parallax orbs on mouse move
-document.addEventListener('mousemove', (e) => {
-const x = e.clientX / window.innerWidth;
-const y = e.clientY / window.innerHeight;
-document.querySelectorAll('.orb').forEach((orb, i) => {
-const speed = (i + 1) * 20;
-orb.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-});
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector('.mobile-menu')?.classList.remove('open');
+    }
+  });
 });
 
-// Nav background on scroll
+// Nav blur on scroll
 const nav = document.querySelector('nav');
 window.addEventListener('scroll', () => {
-nav.classList.toggle('scrolled', window.scrollY > 50);
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Parallax hero text on scroll
+window.addEventListener('scroll', () => {
+  const scrolled = window.scrollY;
+  const hero = document.querySelector('.hero');
+  if (hero && scrolled < window.innerHeight) {
+    hero.style.setProperty('--scroll', scrolled + 'px');
+  }
 });
 </script>
 
