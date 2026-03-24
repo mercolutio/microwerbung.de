@@ -903,7 +903,10 @@ footer {
   .hw-grid { grid-template-columns: 1fr; }
   .hw-card { padding: 36px 28px; }
 
-  .stick-teaser-card { grid-template-columns: 1fr; gap: 40px; padding: 40px 28px; text-align: center; }
+  .stick-teaser-card { grid-template-columns: 1fr; gap: 24px; padding: 32px 24px; text-align: center; }
+  .stick-teaser-img { max-width: 180px; }
+  .stick-teaser-content h2 { font-size: 1.5rem; }
+  .stick-teaser-desc { font-size: .92rem; margin: 12px 0 24px; }
   .stick-teaser-body { width: 160px; height: 50px; }
   .stick-teaser-connector { width: 18px; height: 12px; right: -18px; }
   .stick-teaser-label { font-size: 1rem; }
