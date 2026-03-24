@@ -304,6 +304,10 @@ section{position:relative;z-index:1;padding:120px 0}
 .pricing-divider{
   height:1px;background:var(--border);margin:20px 0;
 }
+.pricing-hint{
+  font-size:.88rem;font-weight:600;
+  color:var(--accent-2);margin-top:4px;
+}
 .pricing-card.featured{
   border-color:rgba(129,140,248,.3);
   background:rgba(129,140,248,.04);
@@ -360,12 +364,12 @@ section{position:relative;z-index:1;padding:120px 0}
   margin:28px 0 16px;overflow:hidden;
 }
 .revenue-bar-fill{
-  width:30%;height:100%;border-radius:3px;
+  width:100%;height:100%;border-radius:3px;
   background:var(--gradient);
   animation:fillBar 2s ease-out forwards;
 }
 @keyframes fillBar{
-  from{width:0}to{width:30%}
+  from{width:0}to{width:100%}
 }
 .revenue-detail{
   font-size:.85rem;color:var(--text-dim);font-weight:500;
