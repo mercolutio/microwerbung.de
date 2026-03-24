@@ -338,6 +338,43 @@ section { position: relative; padding: 140px 0; }
   color: var(--text-tertiary);
 }
 
+/* ═══ Display Features ═══ */
+.display-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.display-feature {
+  text-align: center;
+  padding: 40px 28px;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all .5s var(--ease);
+}
+.display-feature:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
+.display-feature-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: rgba(41,151,255,.08);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--blue);
+}
+.display-feature h3 {
+  font-size: 1.15rem; font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+.display-feature p {
+  color: var(--text-secondary);
+  font-size: .9rem;
+  line-height: 1.65;
+}
+
 /* ═══ Pricing ═══ */
 .pricing-grid {
   display: grid;
@@ -749,6 +786,8 @@ footer {
   }
 
   .konzept-grid { flex-direction: column; align-items: center; gap: 0; }
+  .display-features { grid-template-columns: 1fr; gap: 12px; }
+  .display-feature { padding: 32px 24px; }
   .konzept-card { max-width: 100%; }
   .konzept-arrow { transform: rotate(90deg); padding: 8px 0; }
 
