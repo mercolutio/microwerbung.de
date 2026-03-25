@@ -47,97 +47,139 @@
   gap: 20px;
 }
 
-/* ═══ Models ═══ */
-.tag-models-grid {
+/* ═══ Bulk Section ═══ */
+.tag-bulk-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 900px;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
 }
-.tag-model-card {
+.tag-bulk-dashboard {
+  margin-top: 32px;
+  padding: 24px;
+  background: rgba(52,199,89,.05);
+  border: 1px solid rgba(52,199,89,.15);
+  border-radius: var(--radius);
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.tag-bulk-dashboard strong {
+  color: var(--text);
+}
+.tag-bulk-table-wrap {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 48px 36px;
-  transition: all .5s var(--ease);
-  position: relative;
+  padding: 36px 32px;
 }
-.tag-model-card:hover {
+.tag-table-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+.tag-pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tag-pricing-table th,
+.tag-pricing-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.tag-pricing-table th {
+  font-size: .78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-tertiary);
+}
+.tag-pricing-table td {
+  font-size: .92rem;
+  color: var(--text-secondary);
+}
+.tag-pricing-table td strong {
+  color: var(--text);
+  font-weight: 800;
+}
+.tag-pricing-table tbody tr {
+  transition: background .3s var(--ease);
+}
+.tag-pricing-table tbody tr:hover {
+  background: rgba(255,255,255,.02);
+}
+.tag-pricing-table tbody tr:last-child td {
+  border-bottom: none;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+/* ═══ Writer Section ═══ */
+.tag-writer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.tag-writer-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  transition: all .5s var(--ease);
+}
+.tag-writer-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
 }
-.tag-model-card.featured {
-  border-color: rgba(52,199,89,.3);
-}
-.tag-model-badge {
-  font-size: .72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .08em;
+.tag-writer-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: rgba(52,199,89,.08);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
   color: var(--blue);
-  margin-bottom: 16px;
 }
-.tag-model-card h3 {
-  font-size: 1.5rem;
-  font-weight: 900;
-  letter-spacing: -.02em;
-  margin-bottom: 4px;
+.tag-writer-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  margin-bottom: 8px;
 }
-.tag-model-subtitle {
-  font-size: .95rem;
-  color: var(--text-secondary);
-  margin-bottom: 0;
-}
-.tag-model-divider {
-  width: 40px;
-  height: 2px;
-  background: var(--gradient);
-  margin: 24px 0;
-}
-.tag-model-desc {
-  color: var(--text-secondary);
-  font-size: .92rem;
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
-.tag-model-card .check-list {
-  margin-bottom: 32px;
-}
-.tag-model-pricing {
-  margin-bottom: 24px;
-}
-.tag-model-price-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--border);
-}
-.tag-model-price-row:last-child {
-  border-bottom: none;
-}
-.tag-model-price {
-  font-size: 1.3rem;
+.tag-writer-price {
+  font-size: 1.25rem;
   font-weight: 900;
   letter-spacing: -.02em;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-bottom: 12px;
 }
-.tag-model-period {
+.tag-writer-price span {
   font-size: .85rem;
-  color: var(--text-tertiary);
   font-weight: 500;
 }
-.tag-model-price-small {
-  font-size: .9rem;
+.tag-writer-card p {
   color: var(--text-secondary);
-  font-weight: 600;
+  font-size: .88rem;
+  line-height: 1.65;
 }
-.tag-model-price-optional {
-  opacity: .7;
+.tag-writer-pitch {
+  margin-top: 32px;
+  padding: 28px 32px;
+  background: rgba(52,199,89,.05);
+  border: 1px solid rgba(52,199,89,.15);
+  border-radius: var(--radius);
+  font-size: .95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.tag-writer-pitch strong {
+  color: var(--text);
 }
 
 /* ═══ Use Cases ═══ */
@@ -204,6 +246,8 @@
 /* ═══ Responsive ═══ */
 @media (max-width: 1024px) {
   .tag-usecases-grid { grid-template-columns: repeat(2, 1fr); }
+  .tag-bulk-layout { grid-template-columns: 1fr; }
+  .tag-writer-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -212,8 +256,12 @@
 
   .tag-steps-grid { grid-template-columns: 1fr; gap: 12px; }
 
-  .tag-models-grid { grid-template-columns: 1fr; gap: 16px; }
-  .tag-model-card { padding: 36px 28px; }
+  .tag-writer-grid { grid-template-columns: 1fr; gap: 12px; }
+  .tag-writer-card { padding: 28px 24px; }
+
+  .tag-bulk-table-wrap { padding: 24px 20px; }
+  .tag-pricing-table th,
+  .tag-pricing-table td { padding: 10px 12px; font-size: .85rem; }
 
   .tag-usecases-grid { grid-template-columns: 1fr; gap: 12px; }
   .tag-usecase-card { padding: 28px 24px; }
