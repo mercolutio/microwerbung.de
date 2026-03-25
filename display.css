@@ -1,0 +1,87 @@
+/* ═══ Display Page Styles ═══ */
+
+.display-hero {
+  padding: 160px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.display-hero::before {
+  content: '';
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse, rgba(200,230,0,.06) 0%, rgba(52,199,89,.03) 50%, transparent 70%);
+  pointer-events: none;
+}
+.display-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.display-hero-content {
+  max-width: 520px;
+}
+.display-hero h1 {
+  font-weight: 900;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -.05em;
+  margin-bottom: 24px;
+}
+.display-hero-sub {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.display-hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.display-hero-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.display-hero-image img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: var(--radius);
+  box-shadow: 0 40px 80px rgba(0,0,0,.4);
+}
+.display-hero-image-glow {
+  position: absolute;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(200,230,0,.12) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Active nav link */
+.nav-link-active {
+  color: var(--text) !important;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1024px) {
+  .display-hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .display-hero-content { max-width: 100%; margin: 0 auto; }
+  .display-hero-ctas { justify-content: center; }
+  .display-hero-image { margin-top: 40px; }
+}
+
+@media (max-width: 768px) {
+  .display-hero { padding: 120px 0 60px; }
+  .display-hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+}
+
+@media (max-width: 480px) {
+  .display-hero { padding: 110px 0 40px; }
+  .display-hero-ctas { flex-direction: column; align-items: stretch; }
+}
